@@ -53,7 +53,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: 'Imperative',
                 {word: 'Pressing',
                 {word: 'Emergency',
-                {word: 'Vital',
+                {word: 'Vital'
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
@@ -72,7 +72,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: 'Low-risk',
                 {word: 'Stable',
                 {word: 'Unimportant',
-                {word: 'Nonthreatening',
+                {word: 'Nonthreatening'
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
