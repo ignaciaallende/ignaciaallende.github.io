@@ -62,7 +62,7 @@ define(['pipAPI', 'https://cdn.jsdelivr.net/gh/ignaciaallende/ignaciaallende.git
         attribute2 : {
             name : 'Urgent',
             title : {
-                media : {word : 'Non urgent'},
+                media : {word : 'Urgent'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
