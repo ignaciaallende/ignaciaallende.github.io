@@ -30,9 +30,9 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 				css:{"touch-action": "manipulation"}
 			},
 			category1 : {
-				name : 'Black people', //Will appear in the data and in the default feedback message.
+				name : 'Men', //Will appear in the data and in the default feedback message.
 				title : {
-					media : {word : 'Black people'}, //Name of the category presented in the task.
+					media : {word : 'Men'}, //Name of the category presented in the task.
 					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
 					height : 4 //Used to position the "Or" in the combined block.
 				},
@@ -48,9 +48,9 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 				stimulusCss : {color:'#336600','font-size':'2.3em'}
 			},
 			category2 :	{
-				name : 'White people', //Will appear in the data and in the default feedback message.
+				name : 'Women', //Will appear in the data and in the default feedback message.
 				title : {
-					media : {word : 'White people'}, //Name of the category presented in the task.
+					media : {word : 'Women'}, //Name of the category presented in the task.
 					css : {color:'#336600','font-size':'1.8em'}, //Style of the category title.
 					height : 4 //Used to position the "Or" in the combined block.
 				},
@@ -67,42 +67,42 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			},
 			attribute2 :
 			{
-				name : 'Good words',
+				name : 'Urgent',
 				title : {
-					media : {word : 'Good words'},
+					media : {word : 'Non urgent'},
 					css : {color:'#0000FF','font-size':'1.8em'},
 					height : 4 //Used to position the "Or" in the combined block.
 				},
 				stimulusMedia : [ //Stimuli content as PIP's media objects
-					{word: 'laughter'},
-					{word: 'happy'},
-					{word: 'glorious'},
-					{word: 'joy'},
-					{word: 'wonderful'},
-					{word: 'peace'},
-					{word: 'pleasure'},
-					{word: 'love'}
+					{word: 'Acute'},
+                    {word: 'Critical'},
+                    {word: 'Imperative'},
+                    {word: 'Pressing'},
+                    {word: 'Emergency'},
+                    {word: 'Vital'},
+					{word: 'Urgent'},
+					{word: 'Important'}
 				],
 				//Stimulus css
 				stimulusCss : {color:'#0000FF','font-size':'2.3em'}
 			},
 			attribute1 :
 			{
-				name : 'Bad words',
+				name : 'Non urgent',
 				title : {
-					media : {word : 'Bad words'},
+					media : {word : 'Non urgent'},
 					css : {color:'#0000FF','font-size':'1.8em'},
 					height : 4 //Used to position the "Or" in the combined block.
 				},
 				stimulusMedia : [ //Stimuli content as PIP's media objects
-					{word: 'awful'},
-					{word: 'failure'},
-					{word: 'agony'},
-					{word: 'hurt'},
-					{word: 'horrible'},
-					{word: 'terrible'},
-					{word: 'nasty'},
-					{word: 'evil'}
+					 {word: 'Minor'},
+                     {word: 'Trivial'},
+                     {word: 'Routine'},
+                     {word: 'Low-risk'},
+                     {word: 'Stable'},
+                     {word: 'Unimportant'},
+                     {word: 'Nonthreatening'},
+					 {word: 'Nothing'}
 				],
 				//Stimulus css
 				stimulusCss : {color:'#0000FF','font-size':'2.3em'}
