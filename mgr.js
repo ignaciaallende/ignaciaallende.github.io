@@ -79,13 +79,7 @@ define(['managerAPI',
             title: 'IAT Instructions',
             header: 'Implicit Association Test'
         }],
-
-        explicits: [{
-            type: 'quest',
-            name: 'explicits',
-            scriptUrl: 'explicits.js'
-        }],
-
+		
         raceiat: [{
             type: 'time',
             name: 'raceiat',
