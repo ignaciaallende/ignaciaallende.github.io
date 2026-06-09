@@ -3,9 +3,9 @@ define(['managerAPI',
 
 
 	//You can use the commented-out code to get parameters from the URL.
-	//const queryString = window.location.search;
-    //const urlParams = new URLSearchParams(queryString);
-    //const pt = urlParams.get('pt');
+	const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const pid = urlParams.get('pid');
 
 	var API    = new Manager();
 	//const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
@@ -31,6 +31,7 @@ define(['managerAPI',
         raceiat:{},
         //YBYB: change when copying back to the correct folder
         baseURL: './images/',
+		redcap_pid: pid,
         raceSet:raceSet,
         blackLabels:blackLabels,
         whiteLabels:whiteLabels,
@@ -109,8 +110,8 @@ define(['managerAPI',
 
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
-        
-        { type: 'post', path: ['$isTouch', 'raceSet', 'blackLabels', 'whiteLabels'] },
+
+		{ type: 'post', path: ['$isTouch', 'redcap_pid', 'raceSet', 'blackLabels', 'whiteLabels'] },
 
         // apply touch only styles
         {
