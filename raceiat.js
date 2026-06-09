@@ -71,8 +71,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 {word: 'Routine',
                 {word: 'Low-risk',
                 {word: 'Stable',
-                {word: 'Unimportant',
-                {word: 'Nonthreatening'
+                {word: 'Unimportant'
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
