@@ -42,7 +42,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
         attribute1 : {
             name : 'Bad words',
             title : {
-                media : {word : 'Bad words'},
+                media : {word : 'words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
