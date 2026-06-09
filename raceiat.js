@@ -80,7 +80,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
         },
 
         base_url : {
-            image : ' ./images/'
+            image : './images/'
         },
 
         isTouch : global.$isTouch
