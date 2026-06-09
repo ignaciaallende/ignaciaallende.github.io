@@ -40,39 +40,40 @@ define(['pipAPI', 'https://cdn.jsdelivr.net/gh/ignaciaallende/ignaciaallende.git
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },
         attribute1 : {
-            name : 'Bad words',
+            name : 'Non urgent',
             title : {
-                media : {word : 'Bad words'},
+                media : {word : 'Non urgent'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: 'Acute'},
-                {word: 'Critical}',
-                {word: 'Imperative'},
-                {word: 'Pressing'},
-                {word: 'Emergency'},
-                {word: 'Vital'},
-                {word: 'Urgent'}
+                {word: 'Minor',
+                {word: 'Trivial',
+                {word: 'Routine',
+                {word: 'Low-risk',
+                {word: 'Stable',
+                {word: 'Unimportant',
+                {word: 'Nonthreatening',
+                {word: 'Nothing' 
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         attribute2 : {
-            name : 'Good words',
+            name : 'Urgent',
             title : {
-                media : {word : 'Good words'},
+                media : {word : 'Non urgent'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: 'Minor'},
-                {word: 'Trivial'},
-                {word: 'Routine'},
-                {word: 'Low-risk'},
-                {word: 'Stable'},
-                {word: 'Unimportant'},
-                {word: 'Nonthreatening'}
+                {word: 'Acute',
+                {word: 'Critical',
+                {word: 'Imperative',
+                {word: 'Pressing',
+                {word: 'Emergency',
+                {word: 'Urgent',
+                {word: 'Important',
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
