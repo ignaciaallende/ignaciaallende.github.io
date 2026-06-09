@@ -146,28 +146,20 @@ define(['managerAPI',
                 }
             ]
         },
-        
-        
-        {inherit: 'intro'},
-        {
-            mixer:'random',
-            data:[
-                {inherit: 'explicits'},
+ {inherit: 'intro'},
 
-                // force the instructions to preceed the iat
-                {
-                    mixer: 'wrapper',
-                    data: [
-                        {inherit: 'raceiat_instructions'},
-                        {inherit: 'raceiat'}
-                    ]
-                }
-            ]
-        },
+// IAT instructions followed by the IAT
+{
+    mixer: 'wrapper',
+    data: [
+        {inherit: 'raceiat_instructions'},
+        {inherit: 'raceiat'}
+    ]
+},
 
-		{inherit: 'uploading'},
-        {inherit: 'lastpage'},
-        {inherit: 'redirect'}
+{inherit: 'uploading'},
+{inherit: 'lastpage'},
+{inherit: 'redirect'}   
     ]);
 
     return API.script;
