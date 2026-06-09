@@ -49,10 +49,10 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             stimulusMedia : [
                 {word: 'Urgent'},
                 {word: 'Immediate'},
-                {word: 'Now'},
+                {word: 'Acute'},
                 {word: 'Critical'},
                 {word: 'Priority'},
-                {word: 'ASAP'},
+                {word: 'Vital'},
                 {word: 'Emergency'},
                 {word: 'Pressing'}
             ],
@@ -67,13 +67,13 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
                 height : 4
             },
             stimulusMedia : [
-                {word: 'Later'},
+                {word: 'Minor'},
                 {word: 'Routine'},
-                {word: 'Flexible'},
-                {word: 'Anytime'},
-                {word: 'Optional'},
-                {word: 'Scheduled'},
-                {word: 'Eventually'},
+                {word: 'Trivial'},
+                {word: 'Low-risk'},
+                {word: 'Stable'},
+                {word: 'Nonthreatening'},
+                {word: 'Unimportant'},
                 {word: 'Low-priority'}
             ],
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
