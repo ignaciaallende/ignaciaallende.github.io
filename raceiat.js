@@ -40,7 +40,7 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },
         attribute1 : {
-            name : 'words',
+            name : 'Bad words',
             title : {
                 media : {word : 'Bad words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
