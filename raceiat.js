@@ -40,39 +40,39 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },
         attribute1 : {
-            name : 'Urgent words',
+            name : 'Bad words',
             title : {
-                media : {word : 'Urgent words'},
+                media : {word : 'Bad words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: 'Acute',
-                {word: 'Critical',
-                {word: 'Imperative',
-                {word: 'Pressing',
-                {word: 'Emergency',
-                {word: 'Vital',
-                {word: 'Urgent'
+                {word: 'Acute'},
+                {word: 'Critical}',
+                {word: 'Imperative'},
+                {word: 'Pressing'},
+                {word: 'Emergency'},
+                {word: 'Vital'},
+                {word: 'Urgent'}
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         attribute2 : {
-            name : 'Non urgent words',
+            name : 'Good words',
             title : {
-                media : {word : 'Non urgent words'},
+                media : {word : 'Good words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: 'Minor',
-                {word: 'Trivial',
-                {word: 'Routine',
-                {word: 'Low-risk',
-                {word: 'Stable',
-                {word: 'Unimportant',
-                {word: 'Nonthreatening'
+                {word: 'Minor'},
+                {word: 'Trivial'},
+                {word: 'Routine'},
+                {word: 'Low-risk'},
+                {word: 'Stable'},
+                {word: 'Unimportant'},
+                {word: 'Nonthreatening'}
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
