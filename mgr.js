@@ -96,7 +96,7 @@ define(['managerAPI',
             //last:true, 
             header: 'You have completed the study',
 			
-onFinish: function(){
+onEnd: function(){
         var selected = document.querySelector('input[name="withdraw"]:checked');
 
         if(!selected){
