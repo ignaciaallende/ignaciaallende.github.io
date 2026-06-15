@@ -94,9 +94,20 @@ define(['managerAPI',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the study'
-        }], 
-        
+            header: 'You have completed the study',
+			
+onFinish: function(){
+        var selected = document.querySelector('input[name="withdraw"]:checked');
+
+        if(!selected){
+            alert('Please select an option before continuing.');
+            return false;
+        }
+
+        // Save the response
+        this.global.withdraw_choice = selected.value;
+    }
+}],     
         //Use if you want to redirect the participants elsewhere at the end of the study
         redirect:
         [{ 
@@ -111,7 +122,7 @@ define(['managerAPI',
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
 
-		{ type: 'post', path: ['$isTouch', 'redcap_pid', 'raceSet', 'blackLabels', 'whiteLabels'] },
+		{ type: 'post', path: ['$isTouch', 'redcap_pid', 'raceSet', 'blackLabels', 'whiteLabels', "withdraw_choice'] },
 
         // apply touch only styles
         {
