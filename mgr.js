@@ -122,7 +122,7 @@ onFinish: function(){
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
 
-		{ type: 'post', path: ['$isTouch', 'redcap_pid', 'raceSet', 'blackLabels', 'whiteLabels', "withdraw_choice'] },
+		{ type: 'post', path: ['$isTouch', 'redcap_pid', 'raceSet', 'blackLabels', 'whiteLabels', 'withdraw_choice'] },
 
         // apply touch only styles
         {
