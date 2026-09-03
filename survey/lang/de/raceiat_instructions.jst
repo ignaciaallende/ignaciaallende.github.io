@@ -1,0 +1,76 @@
+<%
+    var respInst = "mit den Tasten „E“ und „I“ der Tastatur ";
+    if (global.$isTouch)  respInst = "";
+%>
+
+<div class="panel panel-info" style="margin-top:1em">
+    <div class="panel-heading">
+        <h1 class="panel-title" style="font-size:2em">
+            Anweisungen zum IAT
+        </h1>
+    </div>
+</div>
+
+<div class="panel-body">
+    <p class="lead">
+        Als Nächstes ordnen Sie <%=respInst%>Elemente so schnell wie möglich den entsprechenden Gruppen zu.
+        Dies sind die vier Gruppen und die dazugehörigen Elemente:
+    </p>
+
+    <!-- Die Kategorienamen und Wortlisten kommen aus strings.js, damit sie immer mit der Aufgabe übereinstimmen. -->
+    <table class="table table-bordered">
+        <tr class="active">
+            <th>Kategorie</th>
+            <th>Elemente</th>
+        </tr>
+
+        <tr>
+            <th><%= global.t.iat.attribute1Title %></th>
+            <td>
+                <%= global.t.iat.attribute1Stimuli.join(', ') %>
+            </td>
+        </tr>
+
+        <tr>
+            <th><%= global.t.iat.attribute2Title %></th>
+            <td>
+                <%= global.t.iat.attribute2Stimuli.join(', ') %>
+            </td>
+        </tr>
+
+        <tr>
+            <th><%= global.t.iat.category1Title %></th>
+            <td>
+                <img src="<%=global.baseURL%>man1.jpg" height=60>
+                <img src="<%=global.baseURL%>man2.jpg" height=60>
+                <img src="<%=global.baseURL%>man3.jpg" height=60>
+                <img src="<%=global.baseURL%>man4.jpg" height=60>
+                <img src="<%=global.baseURL%>man5.jpg" height=60>
+                <img src="<%=global.baseURL%>man6.jpg" height=60>
+            </td>
+        </tr>
+
+        <tr>
+            <th><%= global.t.iat.category2Title %></th>
+            <td>
+                <img src="<%=global.baseURL%>woman1.jpg" height=60>
+                <img src="<%=global.baseURL%>woman2.jpg" height=60>
+                <img src="<%=global.baseURL%>woman3.jpg" height=60>
+                <img src="<%=global.baseURL%>woman4.jpg" height=60>
+                <img src="<%=global.baseURL%>woman5.jpg" height=60>
+                <img src="<%=global.baseURL%>woman6.jpg" height=60>
+            </td>
+        </tr>
+    </table>
+
+    <p class="lead">
+        Der Test besteht aus sieben Abschnitten. Die Anweisungen ändern sich in jedem Abschnitt.
+        Bitte lesen Sie die Anweisungen jeweils aufmerksam durch.
+    </p>
+
+    <div class="text-center proceed" style="margin: 30px auto 10px;">
+        <button pi-message-done type="button" class="btn btn-primary">
+            Start
+        </button>
+    </div>
+</div>

@@ -1,44 +1,45 @@
 <%
-    var respInst = "you will use the 'E' and 'I' computer keys to";
-    if (global.$isTouch)  respInst = "you will";
+    var respInst = "bruke tastene «E» og «I» på tastaturet til å ";
+    if (global.$isTouch)  respInst = "";
 %>
 
 <div class="panel panel-info" style="margin-top:1em">
     <div class="panel-heading">
         <h1 class="panel-title" style="font-size:2em">
-            IAT Instructions
+            Instruksjoner for IAT
         </h1>
     </div>
 </div>
 
 <div class="panel-body">
     <p class="lead">
-        Next, <%=respInst%> categorize items into groups as fast as you can.
-        These are the four groups and the items that belong to each:
+        Nå skal du <%=respInst%>sortere elementer i grupper så raskt du kan.
+        Dette er de fire gruppene og elementene som hører til hver av dem:
     </p>
 
+    <!-- Kategorinavnene og ordlistene hentes fra strings.js, slik at de alltid stemmer med oppgaven. -->
     <table class="table table-bordered">
         <tr class="active">
-            <th>Category</th>
-            <th>Items</th>
+            <th>Kategori</th>
+            <th>Elementer</th>
         </tr>
 
         <tr>
-            <th>Urgent words</th>
+            <th><%= global.t.iat.attribute1Title %></th>
             <td>
-                Urgent, Immediate, Now, Critical, Priority, ASAP, Emergency, Pressing
+                <%= global.t.iat.attribute1Stimuli.join(', ') %>
             </td>
         </tr>
 
         <tr>
-            <th>Non-urgent words</th>
+            <th><%= global.t.iat.attribute2Title %></th>
             <td>
-                Later, Routine, Flexible, Anytime, Optional, Scheduled, Eventually, Low-priority
+                <%= global.t.iat.attribute2Stimuli.join(', ') %>
             </td>
         </tr>
 
         <tr>
-            <th>Men</th>
+            <th><%= global.t.iat.category1Title %></th>
             <td>
                 <img src="<%=global.baseURL%>man1.jpg" height=60>
                 <img src="<%=global.baseURL%>man2.jpg" height=60>
@@ -50,7 +51,7 @@
         </tr>
 
         <tr>
-            <th>Women</th>
+            <th><%= global.t.iat.category2Title %></th>
             <td>
                 <img src="<%=global.baseURL%>woman1.jpg" height=60>
                 <img src="<%=global.baseURL%>woman2.jpg" height=60>
@@ -63,7 +64,7 @@
     </table>
 
     <p class="lead">
-        There are seven parts. The instructions change for each part. Pay attention!
+        Testen består av sju deler. Instruksjonene endrer seg for hver del. Følg godt med!
     </p>
 
     <div class="text-center proceed" style="margin: 30px auto 10px;">

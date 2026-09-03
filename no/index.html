@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Implisitt assosiasjonstest</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/main.css" />
+        <style type="text/css">
+            .container {padding-top: 15px;}
+        </style>
+
+        <script>
+            // The only line that differs between en/, de/ and no/:
+            var LANG = 'no';
+
+            // The shared survey code lives one level up, in /survey/.
+            var SURVEY_BASE = new URL('../survey/', window.location.href).href;
+
+            // MinnoJS adopts window.piGlobal as its global object, so the manager, the IAT
+            // script and the page templates can all read global.lang and global.surveyBase.
+            window.piGlobal = { lang: LANG, surveyBase: SURVEY_BASE };
+
+            // load MinnoJS from the CDN (you probably don't need to change this)
+            var scriptTag    = document.createElement('script');
+            scriptTag.src    = 'https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pi-minno.js';
+            scriptTag.onload = onLoad;
+            document.head.appendChild(scriptTag);
+
+            // This function gets activated only after MinnoJS is loaded
+            function onLoad() {
+                // Create a div with class 'container'
+                var container = document.createElement('div');
+                container.className = 'container';
+
+                // Create the canvas object and append it to the container
+                var canvas = document.createElement('div');
+                container.appendChild(canvas);
+
+                // Append the container to the body
+                document.body.appendChild(container);
+
+                // Run the study
+                minnoJS(canvas, SURVEY_BASE + 'mgr.js');
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

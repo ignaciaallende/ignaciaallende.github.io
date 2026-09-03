@@ -51,20 +51,20 @@
         <h3>Please indicate your preference:</h3>
 
         <label>
-            <input type="radio" name="withdraw" value="yes">
+            <input type="radio" name="withdraw" value="yes" ng-model="global.withdraw_choice">
             Yes, I wish to withdraw from the study. Please delete my responses.
         </label>
         <br><br>
 
         <label>
-            <input type="radio" name="withdraw" value="no">
+            <input type="radio" name="withdraw" value="no" ng-model="global.withdraw_choice">
             No, I consent to my responses being included in the study.
         </label>
 
     </div>
 
     <div class="text-center proceed" style="margin: 30px auto 10px;">
-        <button pi-message-done type="button" class="btn btn-primary">
+        <button pi-message-done type="button" class="btn btn-primary" ng-disabled="!global.withdraw_choice">
             Finish
         </button>
     </div>
