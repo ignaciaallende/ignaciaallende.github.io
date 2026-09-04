@@ -1,0 +1,70 @@
+<div class="panel panel-info" style="margin-top:1em">
+    <div class="panel-heading">
+        <h1 class="panel-title" style="font-size:2em">
+            Slutt på undersøkelsen
+        </h1>
+    </div>
+</div>
+
+<div class="panel-body" style="font-size:1.2em;">
+    <p class='lead'>
+        <b>Tusen takk for din deltakelse.</b>
+        <br/><br/>
+        Les informasjonen nedenfor og oppgi hva du ønsker.
+    </p>
+
+    <div style="text-align:left; max-width:800px; margin:auto;">
+
+        <p>
+        Takk for at du deltok i denne studien om behandlingsforløp i prehospital håndtering av akutte medisinske tilstander.
+        I denne studien har klinikere som arbeider prehospitalt blitt bedt om å svare anonymt på spørsmål som er utformet
+        for å undersøke om pasientens kjønn påvirker diagnostiske prosesser og den videre behandlingen av pasienter med hjerneslag.
+        Fokuset på kjønn ble ikke opplyst om på forhånd, for å unngå å gjøre deg oppmerksom på mulig skjevhet.
+        </p>
+
+        <p><b>Studiens mål:</b></p>
+        <ul>
+            <li>Undersøke om pasientens kjønn påvirker diagnostisk nøyaktighet og behandlingsbeslutninger.</li>
+            <li>Vurdere sammenhengen mellom implisitt kjønnsskjevhet og diagnostisk nøyaktighet.</li>
+            <li>Kartlegge kunnskapshull om kjønnsforskjeller i hvordan hjerneslag presenterer seg.</li>
+            <li>Avgjøre om forskjeller skyldes kunnskapshull, skjevhet eller begge deler.</li>
+        </ul>
+
+        <p>
+        Vår hypotese var at ulikheter i gjenkjenning av hjerneslag drives av både kunnskapshull og implisitt kjønnsskjevhet,
+        og at dette særlig påvirker gjenkjenning og behandling av kvinnelige pasienter.
+        </p>
+
+        <hr>
+
+        <h3>Trekke seg fra studien</h3>
+
+        <p>
+        Deltakelsen er frivillig. Nå som du har fått full informasjon, kan du velge om svarene dine skal inngå i studien.
+        </p>
+
+        <p>
+        Alle svar er anonyme. Hvis du trekker deg, vil svarene dine bli slettet og utelatt.
+        </p>
+
+        <h3>Oppgi hva du ønsker:</h3>
+
+        <label>
+            <input type="radio" name="withdraw" value="yes" ng-model="global.withdraw_choice">
+            Ja, jeg ønsker å trekke meg fra studien. Slett svarene mine.
+        </label>
+        <br><br>
+
+        <label>
+            <input type="radio" name="withdraw" value="no" ng-model="global.withdraw_choice">
+            Nei, jeg samtykker til at svarene mine inngår i studien.
+        </label>
+
+    </div>
+
+    <div class="text-center proceed" style="margin: 30px auto 10px;">
+        <button pi-message-done type="button" class="btn btn-primary" ng-disabled="!global.withdraw_choice">
+            Fullfør
+        </button>
+    </div>
+</div>

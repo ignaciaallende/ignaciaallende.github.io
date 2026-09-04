@@ -1,42 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/main.css" />
-		<style type="text/css">
-        .container {padding-top: 15px;}
-		</style>
-	
+        <meta charset="utf-8">
+        <title>Redirecting</title>
+        <!-- This survey has moved to /en/. This page only forwards old links, keeping the ?pid= parameter. -->
         <script>
-            // load MinnoJS from the CDN (you probably don't need to change this)
-            var scriptTag                = document.createElement('script');
-            scriptTag.src                = 'https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pi-minno.js';
-            scriptTag.onload             = onLoad;
-            scriptTag.onreadystatechange = onLoad;
-            document.head.appendChild(scriptTag);
-        
-            // This function gets activated only after MinnoJS is loaded
-            function onLoad() {
-				// Create a div with class 'container' and id 'minno-app'
-				var container = document.createElement('div');
-				container.className = 'container';
-
-				// Create the canvas object
-				var canvas = document.createElement('div');
-
-				// Append the canvas object to the container
-				container.appendChild(canvas);
-			
-
-				// Append the container to the body
-				document.body.appendChild(container);
-                
-                // Run your study (just set the correct URL)
-                minnoJS(canvas, 'mgr.js');
-                
-                // We need to wait a few miliseconds for Qualtrics to register the value that we entered
-                minnoJS.onEnd = function () { setTimeout(proceed, 100); }
-            }
+            window.location.replace('../en/' + window.location.search + window.location.hash);
         </script>
+        <meta http-equiv="refresh" content="1; url=../en/">
     </head>
     <body>
+        <p>The survey has moved. <a href="../en/">Continue to the survey</a>.</p>
     </body>
 </html>

@@ -1,3 +1,17 @@
+/*
+ * Vendored copy of the MinnoJS IAT engine.
+ *
+ * Upstream: https://github.com/baranan/minno-tasks  (IAT/iat10.js, version 0.7.3, previously
+ * loaded from the jsDelivr CDN at gh/baranan/minno-tasks@0.7.3/IAT/iat10.js).
+ *
+ * Local changes, all marked "LOCAL PATCH" below:
+ *  - getInstTrial(): the category/attribute labels substituted into the block instructions use
+ *    the on-screen title (title.media.word) instead of the data name, so translated titles show
+ *    up in the instructions while the names written to the data stay in English.
+ *    (Upstream already does this for the feedback message, see cat1Name/att1Name near the end.)
+ *
+ * Everything else is unchanged. To upgrade, download the new upstream file and re-apply the patch.
+ */
 define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) {
 
 	/**
@@ -725,6 +739,13 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			return layout;
 		}
 
+		//LOCAL PATCH: the label shown in the instructions is the title used in the task (if it is a word),
+		//not the data name, so translated titles appear in the instructions while the data stay in English.
+		function displayName(obj)
+		{
+			return (obj.title == null || obj.title.media == null || obj.title.media.word == null) ? obj.name : obj.title.media.word;
+		}
+
 		//helper function for creating an instructions trial
 		function getInstTrial(params)
 		{
@@ -732,17 +753,17 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			//The names of the category and attribute labels.
 			if (params.nCats == 2)
 			{//When there are only two categories in the block, one two of these will appear in the instructions.
-				instParams.leftAttribute = params.left1.name;
-				instParams.rightAttribute = params.right1.name;
-				instParams.leftCategory = params.left1.name;
-				instParams.rightCategory = params.right1.name;
+				instParams.leftAttribute = displayName(params.left1);
+				instParams.rightAttribute = displayName(params.right1);
+				instParams.leftCategory = displayName(params.left1);
+				instParams.rightCategory = displayName(params.right1);
 			}
 			else
 			{
-				instParams.leftAttribute = params.left1.name;
-				instParams.rightAttribute = params.right1.name;
-				instParams.leftCategory = params.left2.name;
-				instParams.rightCategory = params.right2.name;
+				instParams.leftAttribute = displayName(params.left1);
+				instParams.rightAttribute = displayName(params.right1);
+				instParams.leftCategory = displayName(params.left2);
+				instParams.rightCategory = displayName(params.right2);
 			}
 			_.extend(instParams, params);
 			var instLocation={bottom:1};
