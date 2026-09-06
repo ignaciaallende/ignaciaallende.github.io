@@ -32,7 +32,21 @@ define({
         uploadingBody: 'Please wait, sending data... ',
         touchQuestion: 'We\'ve detected that you are using a device capable of touch interactions. Would you like to use the touch interface?',
         touchYes: 'Use touch',
-        touchNo: 'Use keyboard'
+        touchNo: 'Use keyboard',
+
+        uploadingTitle: 'Saving',
+
+        // Shown only if the data could not be saved.
+        uploadFailedTitle: 'Not saved',
+        uploadFailedHeader: 'We could not save your answers',
+        uploadFailedBody: 'You have finished the study, but your answers could not be saved to our secure database, so nothing has been recorded. Please do not close this page yet.',
+        uploadFailedContact: 'Please download a copy of your data with the button below and email it to the study team at',
+        uploadFailedDownload: 'Download my data',
+
+        // Shown when the link has no participant code in it.
+        missingPidTitle: 'Link problem',
+        missingPidHeader: 'This link is incomplete',
+        missingPidBody: 'This link is missing the participant code that files your answers, so the study cannot start. Please use the link you were sent, exactly as it was sent. If you typed the address by hand, part of it may have been left out.'
     },
 
     // The sorting task itself.

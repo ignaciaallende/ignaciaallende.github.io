@@ -32,7 +32,21 @@ define({
         uploadingBody: 'Vent litt, sender data... ',
         touchQuestion: 'Vi har oppdaget at enheten din støtter berøring. Vil du bruke berøringsgrensesnittet?',
         touchYes: 'Bruk berøring',
-        touchNo: 'Bruk tastatur'
+        touchNo: 'Bruk tastatur',
+
+        uploadingTitle: 'Lagrer',
+
+        // Vises bare hvis dataene ikke kunne lagres.
+        uploadFailedTitle: 'Ikke lagret',
+        uploadFailedHeader: 'Vi klarte ikke å lagre svarene dine',
+        uploadFailedBody: 'Du har fullført studien, men svarene dine kunne ikke lagres i vår sikre database, så ingenting er registrert. Ikke lukk denne siden ennå.',
+        uploadFailedContact: 'Last ned en kopi av dataene dine med knappen nedenfor og send dem på e-post til studieteamet:',
+        uploadFailedDownload: 'Last ned dataene mine',
+
+        // Vises når lenken mangler deltakerkoden.
+        missingPidTitle: 'Problem med lenken',
+        missingPidHeader: 'Denne lenken er ufullstendig',
+        missingPidBody: 'Denne lenken mangler deltakerkoden som knytter svarene dine til studien, så studien kan ikke starte. Bruk lenken du fikk tilsendt, nøyaktig slik den er. Hvis du skrev inn adressen manuelt, kan noe ha falt bort.'
     },
 
     // The sorting task itself.

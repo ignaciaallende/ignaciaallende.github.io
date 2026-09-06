@@ -5,24 +5,51 @@
  *     window.piGlobal = { lang: '<code>', surveyBase: '<absolute URL of this folder>' }
  * before starting MinnoJS. Everything language-specific comes from
  * lang/<code>/strings.js and the three page templates in that folder.
+ *
+ * Data goes to the study's REDCap through the small forwarding program in worker/.
+ * See worker/README.md for how to set that up.
  */
 var surveyGlobal = window.piGlobal || {};
 var lang = surveyGlobal.lang || 'en';
 var surveyBase = surveyGlobal.surveyBase || './';
 
+// ---------------------------------------------------------------------------------------
+// SETTINGS YOU NEED TO CHANGE
+//
+// 1. UPLOAD_ENDPOINT_LIVE: the address of your deployed forwarding program. `npx wrangler
+//    deploy` prints it. Until you have deployed it, the survey cannot save any data.
+// 2. CONTACT_EMAIL: shown to a participant if their data could not be saved.
+// ---------------------------------------------------------------------------------------
+var UPLOAD_ENDPOINT_LIVE = 'https://iat-redcap-bridge.CHANGE-ME.workers.dev/iat';
+var CONTACT_EMAIL = 'CHANGE-ME@georgeinstitute.org.au';
+
+// When testing on your own machine the survey talks to worker/mock_server.py instead.
+var isLocal = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+var UPLOAD_ENDPOINT = isLocal ? 'http://127.0.0.1:8787/iat' : UPLOAD_ENDPOINT_LIVE;
+
+// Must match the check the forwarding program makes, so a link that would fail at upload
+// time is caught on the very first screen instead.
+var PID_PATTERN = /^[A-Za-z0-9_-]{1,64}$/;
+
 define(['managerAPI',
-        'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/datapipe.min.js',
+        surveyBase + 'upload.js',
         surveyBase + 'lang/' + lang + '/strings.js'],
-function(Manager, datapipe, T){
+function(Manager, upload, T){
 
     var urlParams = new URLSearchParams(window.location.search);
     var pid = urlParams.get('pid');
+    var pidIsUsable = !!pid && PID_PATTERN.test(pid);
 
     var API = new Manager();
 
-    // One DataPipe experiment for all languages; `lang` is added to every uploaded row
-    // (URL parameters such as pid are added automatically as well).
-    init_data_pipe(API, 'jCtvm15Eh4HY', {file_type:'csv', params:{lang: lang}});
+    upload.init(API, {
+        endpoint: UPLOAD_ENDPOINT,
+        params: {lang: lang},           // added to every uploaded row
+        tasks: {                        // which tasks upload, and as what
+            raceiat: 'trials',
+            withdraw: 'withdraw'
+        }
+    });
 
     API.setName('mgr');
     API.addSettings('skip', true);
@@ -79,15 +106,52 @@ function(Manager, datapipe, T){
             type: 'redirect', name: 'redirecting', url: T.endRedirectUrl
         }],
 
-        // This task waits until the data are sent to the server.
-        uploading: uploading_task({header: T.ui.uploadingHeader, body: T.ui.uploadingBody})
+        // "Please wait" pages, one for each of the two uploads.
+        uploading: upload.uploadingTask({
+            name: 'uploading',
+            expects: 'trials',
+            title: T.ui.uploadingTitle,
+            header: T.ui.uploadingHeader,
+            body: T.ui.uploadingBody
+        }),
+
+        uploadingWithdraw: upload.uploadingTask({
+            name: 'uploadingWithdraw',
+            expects: 'withdraw',
+            title: T.ui.uploadingTitle,
+            header: T.ui.uploadingHeader,
+            body: T.ui.uploadingBody
+        }),
+
+        // Shown only if the data could not be saved. It has no "continue" button, so the study
+        // stops here rather than sending the participant on as though all were well.
+        uploadProblem: upload.failureTask({
+            title: T.ui.uploadFailedTitle,
+            header: T.ui.uploadFailedHeader,
+            body: T.ui.uploadFailedBody,
+            contactHelp: T.ui.uploadFailedContact,
+            contactEmail: CONTACT_EMAIL,
+            downloadText: T.ui.uploadFailedDownload
+        }),
+
+        // Shown instead of the survey when the link has no usable participant code.
+        blocked: upload.blockedTask({
+            title: T.ui.missingPidTitle,
+            header: T.ui.missingPidHeader,
+            body: T.ui.missingPidBody
+        })
     });
+
+    // A link without a usable ?pid= cannot be filed against anyone, so say so immediately
+    // rather than after a ten-minute task.
+    if (!pidIsUsable) {
+        API.addSequence([{inherit: 'blocked'}]);
+        return API.script;
+    }
 
     API.addSequence([
         // Minno's touch detection: on touch devices it asks whether to use the touch interface.
         { type: 'isTouch', text: T.ui.touchQuestion, yesText: T.ui.touchYes, noText: T.ui.touchNo },
-
-        { type: 'post', path: ['$isTouch', 'redcap_pid'] },
 
         // apply touch only styles
         {
@@ -135,12 +199,24 @@ function(Manager, datapipe, T){
             ]
         },
 
+        // Upload the trial data, and stop here if it could not be saved.
         {inherit: 'uploading'},
+        {
+            mixer: 'branch',
+            conditions: {compare: 'global.uploadResults.trials', to: 'failed'},
+            data: [{inherit: 'uploadProblem'}]
+        },
+
         {inherit: 'lastpage'},
 
-        // The withdrawal answer is only known now: post it and wait for the upload before leaving.
+        // The withdrawal answer is only known now: upload it and wait before leaving.
         { type: 'post', name: 'withdraw', path: ['withdraw_choice'] },
-        {inherit: 'uploading'},
+        {inherit: 'uploadingWithdraw'},
+        {
+            mixer: 'branch',
+            conditions: {compare: 'global.uploadResults.withdraw', to: 'failed'},
+            data: [{inherit: 'uploadProblem'}]
+        },
 
         {inherit: 'redirect'}
     ]);

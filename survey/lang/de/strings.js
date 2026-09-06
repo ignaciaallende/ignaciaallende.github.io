@@ -32,7 +32,21 @@ define({
         uploadingBody: 'Bitte warten, die Daten werden übertragen... ',
         touchQuestion: 'Wir haben festgestellt, dass Ihr Gerät Touch-Eingaben unterstützt. Möchten Sie die Touch-Oberfläche verwenden?',
         touchYes: 'Touch verwenden',
-        touchNo: 'Tastatur verwenden'
+        touchNo: 'Tastatur verwenden',
+
+        uploadingTitle: 'Speichern',
+
+        // Nur sichtbar, wenn die Daten nicht gespeichert werden konnten.
+        uploadFailedTitle: 'Nicht gespeichert',
+        uploadFailedHeader: 'Ihre Antworten konnten nicht gespeichert werden',
+        uploadFailedBody: 'Sie haben die Studie abgeschlossen, aber Ihre Antworten konnten nicht in unserer gesicherten Datenbank gespeichert werden. Es wurde nichts erfasst. Bitte schließen Sie diese Seite noch nicht.',
+        uploadFailedContact: 'Bitte laden Sie Ihre Daten mit der Schaltfläche unten herunter und senden Sie sie per E-Mail an das Studienteam:',
+        uploadFailedDownload: 'Meine Daten herunterladen',
+
+        // Sichtbar, wenn im Link der Teilnahmecode fehlt.
+        missingPidTitle: 'Problem mit dem Link',
+        missingPidHeader: 'Dieser Link ist unvollständig',
+        missingPidBody: 'Diesem Link fehlt der Teilnahmecode, der Ihre Antworten zuordnet. Die Studie kann daher nicht gestartet werden. Bitte verwenden Sie genau den Link, den Sie erhalten haben. Falls Sie die Adresse abgetippt haben, fehlt möglicherweise ein Teil davon.'
     },
 
     // The sorting task itself.

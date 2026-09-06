@@ -1,0 +1,21 @@
+name = "iat-redcap-bridge"
+main = "src/index.js"
+compatibility_date = "2026-09-04"
+
+# Safe to keep in the repository: these are not secrets.
+[vars]
+# "true" makes the Worker validate requests and report success WITHOUT writing to REDCap.
+# Use it to test the survey before you have a REDCap token. Set to "false" to go live.
+DRY_RUN = "true"
+
+# The name of the first field in your REDCap project (the record identifier).
+REDCAP_RECORD_ID_FIELD = "record_id"
+
+# Only for longitudinal projects: the event name every write belongs to.
+# Leave this line commented out unless your REDCap administrator tells you otherwise.
+# REDCAP_EVENT = "baseline_arm_1"
+
+# REDCAP_API_URL and REDCAP_API_TOKEN are secrets and are NOT stored here.
+# Set them with:
+#   npx wrangler secret put REDCAP_API_URL
+#   npx wrangler secret put REDCAP_API_TOKEN
