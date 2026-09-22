@@ -22,7 +22,7 @@ function(Manager, datapipe, T){
 
     // One DataPipe experiment for all languages; `lang` is added to every uploaded row
     // (URL parameters such as pid are added automatically as well).
-    init_data_pipe(API, 'jCtvm15Eh4HY', {file_type:'csv', params:{lang: lang}});
+    init_data_pipe(API, 'V2xYqeznqKwj', {file_type:'csv', params:{lang: lang}});
 
     API.setName('mgr');
     API.addSettings('skip', true);
